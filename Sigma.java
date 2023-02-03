@@ -23,19 +23,15 @@ public class Sigma {
 		int startVal = Integer.parseInt(input.substring(input.indexOf("=")+1, input.indexOf(" ")).trim());
 		int endVal = Integer.parseInt(input.substring(input.indexOf("sigma")+"sigma".length(), input.indexOf(" ", input.indexOf("sigma")+"sigma".length()+1)).trim());
 		String function = input.substring(input.lastIndexOf(" ")).trim();
-		
-		System.out.println(startVal + " " + endVal + " " + function);
-		
+				
 		double sum = 0;
 		for(int i = startVal; i <= endVal; i++) {
 			try {
 				Object result = engine.eval(evaluateFunction(function, varName, i));
 				if((""+result).indexOf(".") == -1) {
 					//int
-					System.out.println((Integer)result);
 					sum += (Integer)result;
 				} else {
-					System.out.println((Double)result);
 					sum += (Double)result;
 				}
 			} catch (ScriptException e) {
